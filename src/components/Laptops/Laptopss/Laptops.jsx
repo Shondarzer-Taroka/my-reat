@@ -17,7 +17,7 @@ const Laptops = () => {
         seTa(b)
     },[purchaseLaptop])
     useEffect(()=>{
-        fetch('../../../../public/laptops.json')
+        fetch('/laptops.json')
         .then(res=> res.json())
         .then(data => setLaptops(data))
     },[])
