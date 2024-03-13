@@ -38,6 +38,7 @@ const Mobiles = () => {
     },[mobiles])
   
     function handledPurchase(info) {
+      console.log(info);
         let newCartsMobile=[...cartMobile,info]
        
         setCartMobile(newCartsMobile)
@@ -60,6 +61,7 @@ const Mobiles = () => {
 <>  
         <div>
              <h1>Mobile : {mobiles.length}</h1> 
+            
              <Cart handleREmoveCart={handleREmoveCart} cart={cartMobile}> </Cart>
         </div>
 
