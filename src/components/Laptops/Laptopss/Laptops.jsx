@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import Laptop from "../Laptop/Laptop";
 import './Laptops.css'
 import { addTocart, getLocalStorageItems, removeData } from "../../../util/app";
-import Idintity from "./Idintity/Idintity";
+import Idintity from "./Idintity/Idintity"; 
+import laptopsData from '../../../data/laptops.json'
 
 const Laptops = () => {
 
-    let [laptops,setLaptops]=useState([])
+    let [laptops,setLaptops]=useState(laptopsData)
     let [purchaseLaptop,setPurchaseLaptop]=useState([])
     let [a,seTa]=useState([])
 
@@ -16,11 +17,11 @@ const Laptops = () => {
     //     let nea=[...a,b]
         seTa(b)
     },[purchaseLaptop])
-    useEffect(()=>{
-        fetch('/laptops.json')
-        .then(res=> res.json())
-        .then(data => setLaptops(data))
-    },[])
+    // useEffect(()=>{
+    //     fetch('/laptops.json')
+    //     .then(res=> res.json())
+    //     .then(data => setLaptops(data))
+    // },[])
     function purchaseHandled(lap) {
        let newLap=[...purchaseLaptop,lap]
        setPurchaseLaptop(newLap)
@@ -53,7 +54,7 @@ const Laptops = () => {
     // console.log(laptops);
     return (<>  
        <h1>laptops: {laptops.length}</h1> 
-       <h4>jl:{a.length}</h4>
+       <h4> Cart:{a.length}</h4>
        <div>
         {a.map(value=> <Idintity holdingNumber={holdingNumber} idintity={value}></Idintity>)}
        </div>
